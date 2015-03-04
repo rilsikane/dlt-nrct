@@ -75,13 +75,15 @@ public class NrctMainActivity extends Activity {
 				LayoutParams layout = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
 				View view = inflater.inflate(R.layout.actionbar_layout, null);
 				getActionBar().setCustomView(view,layout);
+				ImageView leftArrow = (ImageView) view.findViewById(R.id.imageView1);
+				leftArrow.setVisibility(View.GONE);
 				ImageView rightMenu = (ImageView) view.findViewById(R.id.rightMenu);
 				rightMenu.setOnClickListener(new OnClickListener() {
 					
 					@Override
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
-						Intent intent = new Intent(getApplicationContext(),RightMenuActivity.class);
+						Intent intent = new Intent(NrctMainActivity.this,RightMenuActivity.class);
 						startActivity(intent);
 						NrctMainActivity.this.finish();
 						overridePendingTransition (R.anim.open_next, R.anim.close_main);

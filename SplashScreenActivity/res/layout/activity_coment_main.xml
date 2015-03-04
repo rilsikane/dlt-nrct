@@ -51,7 +51,7 @@
             android:src="@android:drawable/ic_menu_send"
             android:text="@string/add_text"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#8dc375" />
+            android:textColor="#FF0040" />
     </RelativeLayout>
 
 </RelativeLayout>
