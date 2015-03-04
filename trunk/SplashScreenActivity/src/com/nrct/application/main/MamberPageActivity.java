@@ -5,17 +5,27 @@ import java.io.Serializable;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ActionBar.LayoutParams;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.StrictMode;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.aphidmobile.flip.FlipViewController;
 import com.facebook.Session;
 import com.jakewharton.salvage.ScreenSizeUntil;
 import com.nrct.application.dto.CommonDto;
@@ -26,6 +36,9 @@ import com.nrct.application.model.User;
 public class MamberPageActivity extends Activity {
 	private Button logoutBtn;
 	private Button editBtn;
+	private final Handler handler = new Handler();
+	private Drawable oldBackground = null;
+	private int currentColor = 0xFF666666;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,8 +50,10 @@ public class MamberPageActivity extends Activity {
 		setContentView(R.layout.activity_mamber_page);
 		final int color = Color.parseColor("#1B89CA");
 
-		new ScreenSizeUntil(getApplicationContext(), this, RightMenuActivity.class).changeColor(color,getResources().getString(R.string.edit_text_2));
+//		new ScreenSizeUntil(getApplicationContext(), this, RightMenuActivity.class).changeColor(color,getResources().getString(R.string.edit_text_2));
+		changeColor(color);
 		MemberDto memberDto = (MemberDto) getIntent().getSerializableExtra("memberDto");
+
 		
 		TextView username = (TextView) findViewById(R.id.textView1);
 		final EditText firstname  = (EditText) findViewById(R.id.editText1);
@@ -115,6 +130,66 @@ public class MamberPageActivity extends Activity {
 			}
 		});
 	}
+	private void changeColor(int newColor) {
 
+		// change ActionBar color just if an ActionBar is available
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+
+			Drawable colorDrawable = new ColorDrawable(newColor);
+			Drawable bottomDrawable = getResources().getDrawable(R.drawable.actionbar_bottom);
+			LayerDrawable ld = new LayerDrawable(new Drawable[] {colorDrawable, bottomDrawable });
+
+			if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+				ld.setCallback(drawableCallback);
+			} else {
+				getActionBar().setBackgroundDrawable(ld);
+				getActionBar().setDisplayShowHomeEnabled(false);
+				getActionBar().setDisplayShowCustomEnabled(true);
+				getActionBar().setDisplayShowTitleEnabled(false);
+				LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+				LayoutParams layout = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
+				View view = inflater.inflate(R.layout.actionbar_layout, null);
+				getActionBar().setCustomView(view,layout);
+				ImageView leftArrow = (ImageView) view.findViewById(R.id.imageView1);
+				leftArrow.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						Intent intent = new Intent(MamberPageActivity.this,RightMenuActivity.class);
+						startActivity(intent);
+						MamberPageActivity.this.finish();
+						overridePendingTransition (R.anim.open_next, R.anim.close_main);
+					}
+				});
+				TextView title = (TextView) view.findViewById(R.id.textView321);
+				title.setText(getResources().getString(R.string.edit_text_2));
+				ImageView rightMenu = (ImageView) view.findViewById(R.id.rightMenu);
+				rightMenu.setVisibility(View.GONE);
+			}
+
+			oldBackground = ld;
+
+		}
+
+		currentColor = newColor;
+
+	}
+	private Drawable.Callback drawableCallback = new Drawable.Callback() {
+		@Override
+		public void invalidateDrawable(Drawable who) {
+			getActionBar().setBackgroundDrawable(who);
+		}
+
+		@Override
+		public void scheduleDrawable(Drawable who, Runnable what, long when) {
+			handler.postAtTime(what, when);
+		}
+
+		@Override
+		public void unscheduleDrawable(Drawable who, Runnable what) {
+			handler.removeCallbacks(what);
+		}
+	};
 
 }
