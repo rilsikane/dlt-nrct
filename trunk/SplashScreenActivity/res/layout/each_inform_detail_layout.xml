@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/click_relative"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp" >
+
+        <ImageView
+            android:id="@+id/image_item"
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/kms_icon_1024"/>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible"
+            android:background="#BEBEBE" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/chevron15" />
+
+        <TextView
+            android:id="@+id/text_item"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/image_item"
+            android:layout_marginLeft="10dp"
+            android:layout_toLeftOf="@+id/imageView1"
+            android:layout_toRightOf="@+id/image_item"
+            android:lines="2"
+            android:text="ข้อมูลพฤติกรรมและความเชื่อมโยงของ Social Network ไทย"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/createdBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/text_item"
+            android:layout_below="@+id/text_item"
+            android:text="โดย นายกฤษฎา เที่ยงธรรม"
+            android:textSize="12dp"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/createdDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/createdBy"
+            android:layout_below="@+id/createdBy"
+            android:text="29 เมษายน 2557 เวลา 11:52"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    </RelativeLayout>
+
+</LinearLayout>

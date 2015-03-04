@@ -1,0 +1,95 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".PublishDocumentPageActivity" >
+
+    <RelativeLayout
+        android:id="@+id/menuTop"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="#efeff4" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+
+        <RelativeLayout
+            android:id="@+id/layoutAll"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_alignLeft="@+id/textView4"
+            android:layout_alignTop="@+id/textView1"
+            android:layout_toLeftOf="@+id/textView1"
+            android:background="@drawable/boarder" >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/all"
+                android:textColor="#ffffff" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layoutOwn"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_alignRight="@+id/TextView01"
+            android:layout_alignTop="@+id/textView1"
+            android:layout_toRightOf="@+id/textView1" 
+            android:background="@drawable/boarder_empty">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/personal"
+                android:textColor="#8dc375" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:padding="5dp"
+            android:text="@string/attached"
+            android:layout_marginLeft="10dp"
+            android:textColor="#6d6d72"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:padding="5dp"
+            android:layout_marginRight="10dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#6d6d72" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/menuTop"
+        android:layout_centerHorizontal="true" >
+    </FrameLayout>
+
+</RelativeLayout>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	
+	<title>Mindmaps</title>
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	
+	<!-- stylesheet -->
+	<link rel="stylesheet" type="text/css" href="file:///android_asset/slatebox.css" />
+	
+	<!-- javascript -->
+	<script type="text/javascript" src="file:///android_asset/jquery.min.js"></script>
+	<script type="text/javascript" src="file:///android_asset/slatebox.min.js"></script>
+	<script type="text/javascript" src="file:///android_asset/mindmaps.min.js"></script>
+
+</head>
+<body>
+	
+	<div style="width:100%;display:none;">
+		<div id="mindmaps-canvas" style="height:500px;"></div>
+	</div>
+	
+	<script>
+		
+		// สมมุติว่าได้ข้อมูลนี้จาก api (http://kms-production.agter-technology.co.th/BlogApi/get.json)
+		
+		function init(json){
+		if(json){
+			$('#mindmaps-canvas').parent().show();
+			Mindmaps.load(json).to('mindmaps-canvas');
+			
+		}
+	}
+	</script>
+</body>
+</html>

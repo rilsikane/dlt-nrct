@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Smart DLT</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_right_menu">RightMenuActivity</string>
+    <string name="title_activity_inform_detail">InformDetailActivity</string>
+
+    <!-- Temp string -->
+    <string name="temp_actionbar_string">งานวิจัยใช้ประโยชน์</string>
+    <string name="login_menu_text">เข้าสู่ระบบ</string>
+    <string name="search_menu_text">ค้นหาข้อมูล</string>
+    <string name="search_menu_text2">ค้นหา</string>
+    <string name="add_kms_menu_text">เพิ่มข้อมูล Board</string>
+    <string name="contact_menu_text">ติดต่อเรา</string>
+    <string name="about_menu_text">เกี่ยวกับเรา</string>
+    <string name="all_kms_menu">เมนูทั้งหมด</string>
+    <string name="comment_text">เพิ่ม</string>
+    <string name="question_katoo">ตั้งกระทู้ถาม</string>
+    <string name="topic_text">หัวข้อ</string>
+    <string name="detail_text">เนื้อหา</string>
+    <string name="login_text">ลงชื่อเช้าใช้</string>
+    <string name="long_text">Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques. Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques. Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques. Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques. Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques. Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques. Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques. Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques. Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques. Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques. Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques. Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques. Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques.Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques.Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques.Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques.Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques.Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques.Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques.Basically the spell check dialog box makes on-demand calls to a callback page on the server without refreshing the whole page or dialog. It keeps processing small blocks of text using the AJAX (Asynchronous JavaScript and XML) techniques.</string>
+    <string name="title_activity_splash_screen">SplashScreenActivity</string>
+    <string name="title_activity_content_main">ContentMainActivity</string>
+    <string name="title_activity_coment_main">ComentMainActivity</string>
+    <string name="title_activity_professor_main">ProfessorMainActivity</string>
+    <string name="title_activity_professor_content">ProfessorContentActivity</string>
+
+    <!-- Professor Name -->
+    <string name="professor_menu">คุยกับผู้เชี่ยวชาญ</string>
+    <string name="professor_suttiporn">ศาสตราจารย์ นายแพทย์ สุทธิพร จิตต์มิตรภาพ</string>
+    <string name="professor_kritawat">นายกฤษณ์ธวัช นพนาคีพงษ์</string>
+    <string name="professor_sukanya">นางสาวสุกัญญา ธีระกูรณ์เลิศ</string>
+    <string name="professor_jintana">นางสาวจินตนาภา โสภณ</string>
+    <string name="professor_kunchit">นายครรชิต พุทธโกษา</string>
+    <string name="professor_yodwadee">นางยศวดี อึ้งวิเชียร</string>
+    <string name="professor_patama">ดร.ปัทมารัตน์ กุญชร ณ อยุธยา</string>
+
+    <!-- Professor Position -->
+    <string name="professor_suttiporn_position">เลขาธิการคณะกรรมการวิจัยแห่งชาติ</string>
+    <string name="professor_kritawat_position">รองเลขาธิการคณะกรรมการวิจัยแห่งชาติ</string>
+    <string name="professor_sukanya_position">รองเลขาธิการคณะกรรมการการวิจัยแห่งชาติ</string>
+    <string name="professor_jintana_position">ที่ปรึกษาด้านการวิจัยทางสังคมศาสตร์</string>
+    <string name="professor_kunchit_position">ที่ปรึกษาด้านการวิจัยทางวิทยาศาสตร์</string>
+    <string name="professor_yodwadee_position">ผู้เชี่ยวชาญด้านระบบวิจัย(ด้านวิทยาศาสตร์)</string>
+    <string name="professor_patama_position">ผู้เชี่ยวชาญด้านระบบวิจัย(ด้านสังคมศาสตร์)</string>
+    <string name="title_activity_katoo_content">KatooContentActivity</string>
+    <string name="title_activity_prof_post_page">ProfPostPageActivity</string>
+    <string name="title_activity_about_page">AboutPageActivity</string>
+    <string name="title_activity_search_page">SearchPageActivity</string>
+    <string name="title_activity_cotact_us">CotactUsActivity</string>
+    <string name="title1">กรมการขนส่งทางบก</string>
+    <string name="title2">196 ถนน พหลโยธิน แขวง จตุจักร เขต จตุจักร กรุงเทพมหานคร 10900</string>
+    <string name="title3"></string>
+    <string name="titleMobile">โทรศัพท์ :</string>
+    <string name="title4">0-2271-888</string>
+    <string name="titleCallCenter">Call Center :</string>
+    <string name="callCenter">1584</string>
+    <string name="title5">webmaster@dlt.mail.go.th</string>
+    <string name="title6">กรอกข้อมูลติดต่อเรา</string>
+    <string name="title7">เรื่องที่จะติดต่อ</string>
+    <string name="title8">อีเมลของท่าน</string>
+    <string name="title9">เนื้อหา</string>
+    <string name="title10">ส่งข้อความ</string>
+    <string name="title_activity_mamber_page">MamberPageActivity</string>
+    <string name="title_activity_login_page">LoginPageActivity</string>
+    <string name="welcome_login_page">เข้าสู่ระบบเพื่อใช้งานแอพลิเคชัน</string>
+    <string name="desc_new_regis">ยังไม่มีชื่อผู้ใช้ และรหัสผ่าน</string>
+    <string name="new_regis_text">สมัครสมาชิก</string>
+    <string name="forget_pass_text">ลืมรหัสผ่านหรือชื่อผู้ใช้</string>
+    <string name="password_text">รหัสผ่าน</string>
+    <string name="confirm_password_text">ยืนยันรหัสผ่าน</string>
+    <string name="edit_text">แก้ไขข้อมูล</string>
+    <string name="edit_text_2">แก้ไขข้อมูลสมาชิก</string>
+    <string name="logout_text">ลงชื่อออก</string>
+    <string name="email_text">อีเมล์</string>
+    <string name="add_text">เพิ่ม</string>
+    <string name="delete_text">ลบข้อมูล</string>
+    <string name="title_activity_registration_page">RegistrationPageActivity</string>
+    <string name="registration_text">ลงทะเบียนสมาชิก KMS</string>
+    <string name="privacy_text">นโยบายความเป็นส่วนตัว</string>
+    <string name="condition_text">ข้อกำหนดสมาชิก</string>
+    <string name="username_text">ชื่อผู้ใช้</string>
+    <string name="name_text">ชื่อ</string>
+    <string name="surname_text">นามสกุล</string>
+    <string name="confirm_del">ต้องการลบข้อมูลใช่หรือไม่ ?</string>
+    <string name="yes">ใช่</string>
+    <string name="no">ไม่</string>
+    <string name="all">ทั้งหมด</string>
+    <string name="personal">ส่วนตัว</string>
+    <string name="attached">ไฟล์แนบ</string>
+    <string name="title_activity_publish_document_page">PublishDocumentPageActivity</string>
+    <string name="title_activity_pub_doc_content">PubDocContentActivity</string>
+    <string name="app_id">297484310410746</string>
+    <string name="title_activity_mind_map_main">MindMapMainActivity</string>
+    <string name="title_activity_android_gallery_main">AndroidGalleryMainActivity</string>
+    <string name="title_activity_reference_main">ReferenceMainActivity</string>
+    <string name="link_reference">ลิงค์ที่เกี่ยวข้อง</string>
+    <string name="title_activity_reference_detail_main">ReferenceDetailMainActivity</string>
+    <string name="about_link_page">http://dlt.agter-technology.co.th/#!about</string>
+    <string name="register_success">สมัครสมาชิกเรียบร้อย</string>
+    <string name="calendar_view">ปฎิทินกิจกรรม</string>
+
+</resources>

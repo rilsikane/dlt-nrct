@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1B89CA"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_horizontal_margin" >
+
+    <ListView
+        android:id="@+id/menuList"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:cacheColorHint="#00000000"
+        android:divider="#19000000"
+        android:scrollbars="none"
+        android:dividerHeight="2dp"
+        android:fadingEdge="none"
+        android:listSelector="@android:color/transparent" >
+    </ListView>
+
+    <RelativeLayout
+        android:id="@+id/relativeBack"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/menuList"
+        android:layout_centerHorizontal="true" >
+
+        <ImageView
+            android:id="@+id/gobackIcon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/go_back_icon" />
+    </RelativeLayout>
+
+</RelativeLayout>

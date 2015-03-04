@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#000000" >
+
+    <RelativeLayout
+        android:id="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="#80000000" >
+
+<!--         <TextView -->
+<!--             android:id="@+id/textView1" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_centerHorizontal="true" -->
+<!--             android:layout_centerVertical="true" -->
+<!--             android:text="of" -->
+<!--             android:textColor="#ffffff" -->
+<!--             android:textSize="20sp" -->
+<!--             android:textStyle="bold" /> -->
+
+<!--         <TextView -->
+<!--             android:id="@+id/init" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_alignBottom="@+id/textView1" -->
+<!--             android:layout_marginRight="5dp" -->
+<!--             android:layout_toLeftOf="@+id/textView1" -->
+<!--             android:text="TextView" -->
+<!--             android:textColor="#ffffff" -->
+<!--             android:textSize="20sp" -->
+<!--             android:textStyle="bold" /> -->
+
+<!--         <TextView -->
+<!--             android:id="@+id/total" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_alignBaseline="@+id/textView1" -->
+<!--             android:layout_alignBottom="@+id/textView1" -->
+<!--             android:layout_marginLeft="5dp" -->
+<!--             android:layout_toRightOf="@+id/textView1" -->
+<!--             android:text="TextView" -->
+<!--             android:textColor="#ffffff" -->
+<!--             android:textSize="20sp" -->
+<!--             android:textStyle="bold" /> -->
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="23dp"
+            android:src="@drawable/left_arrow" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/layout_top" >
+
+        <ru.truba.touchgallery.GalleryWidget.GalleryViewPager
+            android:id="@+id/viewer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+</RelativeLayout>
