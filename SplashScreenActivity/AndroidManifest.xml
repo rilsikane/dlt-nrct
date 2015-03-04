@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nrct.application.main"
+    android:versionCode="2"
+    android:versionName="2.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.nrct.application.main.SplashScreenActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.RightMenuActivity"
+            android:label="@string/title_activity_right_menu"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.InformDetailActivity"
+            android:label="@string/title_activity_inform_detail"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.KMSMenuActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.NrctMainActivity"
+            android:label="@string/title_activity_splash_screen"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.ContentMainActivity"
+            android:label="@string/title_activity_content_main"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.ComentMainActivity"
+            android:label="@string/title_activity_coment_main"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.ProfessorMainActivity"
+            android:label="@string/title_activity_professor_main"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.ProfessorContentActivity"
+            android:label="@string/title_activity_professor_content"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.KatooContentActivity"
+            android:label="@string/title_activity_katoo_content"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.ProfPostPageActivity"
+            android:label="@string/title_activity_prof_post_page"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.AboutPageActivity"
+            android:label="@string/title_activity_about_page"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.SearchPageActivity"
+            android:label="@string/title_activity_search_page"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.ContactUsActivity"
+            android:label="@string/title_activity_cotact_us"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <meta-data
+            android:name="ormdroid.database.name"
+            android:value="nrct" />
+
+        <activity
+            android:name="com.nrct.application.main.MamberPageActivity"
+            android:label="@string/title_activity_mamber_page"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.LoginPageActivity"
+            android:label="@string/title_activity_login_page"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.RegistrationPageActivity"
+            android:label="@string/title_activity_registration_page"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.PublishDocumentPageActivity"
+            android:label="@string/title_activity_publish_document_page"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.PubDocContentActivity"
+            android:label="@string/title_activity_pub_doc_content"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.facebook.LoginActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
+
+        <activity
+            android:name="com.nrct.application.main.MindMapMainActivity"
+            android:label="@string/title_activity_mind_map_main"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.AndroidGalleryMainActivity"
+            android:label="@string/title_activity_android_gallery_main"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.ReferenceMainActivity"
+            android:label="@string/title_activity_reference_main"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.ReferenceDetailMainActivity"
+            android:label="@string/title_activity_reference_detail_main"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.InformDetailSubMainActivity"
+            android:label="@string/title_activity_reference_detail_main"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.CalendarMainActivity"
+            android:label="@string/title_activity_reference_detail_main"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.nrct.application.main.TaxonomyActivity"
+            android:label="@string/title_activity_reference_detail_main"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+    </application>
+
+</manifest>
