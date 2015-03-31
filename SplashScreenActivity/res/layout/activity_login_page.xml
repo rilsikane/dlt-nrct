@@ -38,8 +38,9 @@
                 android:id="@+id/imageView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
                 android:layout_below="@+id/textView1"
-                android:layout_centerHorizontal="true"
                 android:layout_marginTop="33dp" />
 
             <EditText
@@ -101,7 +102,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/new_regis_text"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#8dc375" />
+                android:textColor="#FF0040" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -112,7 +113,7 @@
                 android:layout_marginTop="40dp"
                 android:text="@string/forget_pass_text"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#8dc375" />
+                android:textColor="#FF0040" />
         </RelativeLayout>
     </ScrollView>
 

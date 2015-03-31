@@ -10,7 +10,7 @@
     <!-- Temp string -->
     <string name="temp_actionbar_string">งานวิจัยใช้ประโยชน์</string>
     <string name="login_menu_text">เข้าสู่ระบบ</string>
-    <string name="search_menu_text">ค้นหาข้อมูล</string>
+    <string name="search_menu_text">ค้นหา</string>
     <string name="search_menu_text2">ค้นหา</string>
     <string name="add_kms_menu_text">เพิ่มข้อมูล Board</string>
     <string name="contact_menu_text">ติดต่อเรา</string>

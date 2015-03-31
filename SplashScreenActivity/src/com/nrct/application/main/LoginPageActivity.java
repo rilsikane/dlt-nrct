@@ -120,8 +120,7 @@ public class LoginPageActivity extends FragmentActivity {
     				memberDto.setFirstname(userGraph.getFirstName());
     				memberDto.setLastname(userGraph.getLastName());
     				
-    				Intent i = new Intent(LoginPageActivity.this,
-    						MamberPageActivity.class);
+    				Intent i = new Intent(LoginPageActivity.this,RightMenuActivity.class);
     				i.putExtra("memberDto",(Serializable) memberDto);
     				startActivity(i);
     				

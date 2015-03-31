@@ -54,13 +54,11 @@ public class RightMenuActivity extends Activity {
 		gobackIcon.setOnClickListener(new OnClickListener() {
 			
 			@Override
-			public void onClick(View v) {
-				
-				RightMenuActivity.this.finish();
-				
-				overridePendingTransition(R.anim.open_main, R.anim.close_next);
+			public void onClick(View v) {												
 				Intent intent = new Intent(getApplicationContext(),NrctMainActivity.class);
 				startActivity(intent);
+				overridePendingTransition(R.anim.open_main, R.anim.close_next);
+				finish();
 			}
 		});
 	}

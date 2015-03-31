@@ -123,12 +123,19 @@ public class MamberPageActivity extends Activity {
 				            MamberPageActivity.this.finish();
 							Intent intent = new Intent(getApplicationContext(),RightMenuActivity.class);
 							startActivity(intent);
+							finish();
 				            //clear your preferences if saved
 //				        }
 				    }
 				
 			}
 		});
+	}
+	@Override
+	public void onBackPressed(){		            
+		Intent intent = new Intent(getApplicationContext(),RightMenuActivity.class);
+		startActivity(intent);
+		finish();		         		   
 	}
 	private void changeColor(int newColor) {
 
