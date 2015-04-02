@@ -8,7 +8,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -86,7 +88,7 @@ public class JSONParserForGetList {
 						menu.setPublish(menuObj.getBoolean("publish"));
 						menu.setUrl(menuObj.getString("url"));
 						menu.setForBlog(menuObj.getBoolean("forBlog"));
-						menu.setImgpath("http://nrctapp.nrct.go.th/api/app/webroot/img/menus/"+menuObj.getString("id")+".jpg");
+						menu.setImgpath("http://dlt.agter-technology.co.th/api/app/webroot/img/menus/"+menuObj.getString("id")+".jpg");
 						
 						if(menuJson.has("Children")){
 							List<MenuDto> childList = new ArrayList<MenuDto>();
@@ -119,7 +121,7 @@ public class JSONParserForGetList {
 							menu.setPublish(menuObj.getBoolean("publish"));
 							menu.setUrl(menuObj.getString("url"));
 							menu.setForBlog(menuObj.getBoolean("forBlog"));
-							menu.setImgpath("http://nrctapp.nrct.go.th/api/app/webroot/img/menus/"+menuObj.getString("id")+".jpg");
+							menu.setImgpath("http://dlt.agter-technology.co.th/api/app/webroot/img/menus/"+menuObj.getString("id")+".jpg");
 							menuList.add(menu);
 						}
 					}
@@ -162,7 +164,7 @@ public class JSONParserForGetList {
 						menu.setPublish(menuObj.getBoolean("publish"));
 						menu.setUrl(menuObj.getString("url"));
 						menu.setForBlog(menuObj.getBoolean("forBlog"));
-						menu.setImgpath("http://nrctapp.nrct.go.th/api/app/webroot/img/menus/"+menuObj.getString("id")+".jpg");
+						menu.setImgpath("http://dlt.agter-technology.co.th/api/app/webroot/img/menus/"+menuObj.getString("id")+".jpg");
 						menu.setDescription(menuObj.getString("description"));
 						
 						if(menuJson.has("Children")){
@@ -198,6 +200,57 @@ public class JSONParserForGetList {
 
 		}
 		return menuDto;
+	}
+	public Map<String,MenuDto> getRefreshMenus(String token) {
+		Map<String,MenuDto> menuList = new HashMap<String, MenuDto>();
+		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+		nameValuePairs.add(new BasicNameValuePair("token", token));
+		JSONArray json = getJsonArrayFromUrlDoPost(GlobalVariable.URL_MENU_ALL,nameValuePairs,"list");
+		if (json != null) {
+			JSONArray one = json;
+			try {
+				for (int i = 0; i < one.length(); i++) {
+					
+					JSONObject menuJson = one.getJSONObject(i);
+					if(menuJson!=null){
+					if("62".equals(menuJson.getJSONObject("Menu").get("id"))){
+						JSONObject menuObj = menuJson.getJSONObject("Menu");
+						MenuDto menu = new MenuDto();
+						menu.setId(menuObj.getString("id"));
+						menu.setName(menuObj.getString("name"));
+						menu.setParent_id(menuObj.getString("parent_id"));
+						menu.setPublish(menuObj.getBoolean("publish"));
+						menu.setUrl(menuObj.getString("url"));
+						menu.setForBlog(menuObj.getBoolean("forBlog"));
+						menu.setImgpath("http://dlt.agter-technology.co.th/api/app/webroot/img/menus/"+menuObj.getString("id")+".jpg");
+
+						menuList.put(menuObj.getString("id"),menu);
+					}else{
+						
+						JSONObject menuObj = menuJson.getJSONObject("Menu");
+						if(!"18".equals(menuObj.getString("id")) && !"19".equals(menuObj.getString("id"))){
+							MenuDto menu = new MenuDto();
+							menu.setId(menuObj.getString("id"));
+							menu.setName(menuObj.getString("name"));
+							menu.setParent_id(menuObj.getString("parent_id"));
+							menu.setPublish(menuObj.getBoolean("publish"));
+							menu.setUrl(menuObj.getString("url"));
+							menu.setForBlog(menuObj.getBoolean("forBlog"));
+							menu.setImgpath("http://dlt.agter-technology.co.th/api/app/webroot/img/menus/"+menuObj.getString("id")+".jpg");
+							menuList.put(menuObj.getString("id"),menu);
+						}
+					}
+					}
+
+				}
+				
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+		return menuList;
 	}
 
 	public List<BlogDto> getBlog(String menu_id) {

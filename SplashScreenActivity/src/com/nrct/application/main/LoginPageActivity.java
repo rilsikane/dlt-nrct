@@ -161,8 +161,8 @@ public class LoginPageActivity extends FragmentActivity {
 			if (result.isSuccess()) {
 				MemberDto memberDto =  JSONParserForGetList.getInstance().getProfile(dto.getToken());
 				Intent i = new Intent(LoginPageActivity.this,
-						MamberPageActivity.class);
-				i.putExtra("memberDto",(Serializable) memberDto);
+						NrctMainActivity.class);
+				//i.putExtra("memberDto",(Serializable) memberDto);
 				
 				User user = Entity.query(User.class).where("id").eq(1).execute();
 				

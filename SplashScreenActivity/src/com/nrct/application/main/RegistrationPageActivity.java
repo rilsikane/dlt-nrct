@@ -57,9 +57,9 @@ public class RegistrationPageActivity extends Activity {
 	                            public void onClick(DialogInterface dialog,
 	                                    int which) {
 	                            	CommonDto dto = JSONParserForGetList.getInstance().getAuthorize(email.getText().toString(), password.getText().toString());
-	                            	Intent i= new Intent(RegistrationPageActivity.this,MamberPageActivity.class);
+	                            	//Intent i= new Intent(RegistrationPageActivity.this,MamberPageActivity.class);
 	                            	MemberDto memberDto =  JSONParserForGetList.getInstance().getProfile(dto.getToken());
-	                				i.putExtra("memberDto",(Serializable) memberDto);
+	                				//i.putExtra("memberDto",(Serializable) memberDto);
 	                				
 	                				User user = new User();
 	                				user.user_id = memberDto.getId();
@@ -68,7 +68,10 @@ public class RegistrationPageActivity extends Activity {
 	                				user.firstname = memberDto.getFirstname();
 	                				user.lastname = memberDto.getLastname();
 	                				user.save();
-	            					RegistrationPageActivity.this.startActivity(i);
+	                				Intent intent = new Intent(RegistrationPageActivity.this,RightMenuActivity.class);
+	            					RegistrationPageActivity.this.startActivity(intent);
+	            					RegistrationPageActivity.this.finish();
+	        						overridePendingTransition (R.anim.open_next, R.anim.close_main);
 	                            }
 	                        });
 	               

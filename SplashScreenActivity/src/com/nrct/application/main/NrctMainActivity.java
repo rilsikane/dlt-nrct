@@ -1,6 +1,7 @@
 package com.nrct.application.main;
 
 import java.util.List;
+import java.util.Map;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar.LayoutParams;
@@ -31,6 +32,7 @@ import com.nrct.application.dto.MenuDto;
 import com.nrct.application.dto.SlideDto;
 import com.nrct.application.json.JSONParserForGetList;
 import com.nrct.application.model.Menu;
+import com.nrct.application.model.User;
 import com.roscopeco.ormdroid.ORMDroidApplication;
 
 @SuppressLint("NewApi")
@@ -39,6 +41,7 @@ public class NrctMainActivity extends Activity {
 	private FlipViewController flipView;
 	private Drawable oldBackground = null;
 	private int currentColor = 0xFF666666;
+	 private long backPressedTime = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -143,6 +146,24 @@ public class NrctMainActivity extends Activity {
 			//JSONParserForGetList json =  JSONParserForGetList.getInstance();
 			Menu menu = new Menu();
 			List<Menu> menuList = menu.getMenuSelected();
+			//for refresh
+			if(menuList!=null){
+				String token = "";
+				User user = new User();
+				if(user.getUserLogin()!=null){
+					
+					token = user.getUserLogin().token;
+				}
+				
+				Map<String,MenuDto> menuTmpMap =  JSONParserForGetList.getInstance().getRefreshMenus(token);
+				
+				for(Menu menuTmp : menuList){
+				
+					MenuDto dto = menuTmpMap.get(menuTmp.menu_id);
+					menuTmp = menu.converMenuDtoToMenu(dto);
+					menuTmp.save();
+				}
+			}
 			Menu temp = new Menu();
 			temp.id=888;
 			temp.menu_id="888";
@@ -171,4 +192,16 @@ public class NrctMainActivity extends Activity {
 		}
 
 	}
+	@Override
+    public void onBackPressed() {        // to prevent irritating accidental logouts
+        long t = System.currentTimeMillis();
+        if (t - backPressedTime > 2000) {    // 2 secs
+            backPressedTime = t;
+            Toast.makeText(this, "Press back again to logout",
+                                Toast.LENGTH_SHORT).show();
+        } else {    // this guy is serious
+            // clean up
+            super.onBackPressed();       // bye
+        }
+    }
 }

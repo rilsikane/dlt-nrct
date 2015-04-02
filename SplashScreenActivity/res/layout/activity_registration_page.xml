@@ -129,34 +129,7 @@
                 android:text="@string/new_regis_text"
                 android:textColor="#ffffff" />
 
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:layout_below="@+id/button1"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp" >
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:text="@string/privacy_text"
-                    android:textColor="#8dc375" />
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/textView2"
-                    android:layout_alignBottom="@+id/textView2"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dp"
-                    android:text="@string/condition_text"
-                    android:textColor="#8dc375" />
-            </RelativeLayout>
+           
         </RelativeLayout>
     </ScrollView>
 
