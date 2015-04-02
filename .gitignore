@@ -1,0 +1,14 @@
+Aphid-FlipView-Library/*
+*.class
+SplashScreenActivity/gen
+SplashScreenActivity/bin/*
+*.jar
+*/R.java
+ORMDroid/
+pined_list_lib/*
+Library/*
+gallery_library/*
+FacebookSDK/*
+FacebookSDK/[Bb]in/*
+android-auto-scroll-view-pager/*
+[Bb]in/
