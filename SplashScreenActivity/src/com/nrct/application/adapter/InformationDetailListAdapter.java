@@ -71,10 +71,10 @@ public class InformationDetailListAdapter extends BaseAdapter{
 			viewHolder.tumbnail = (ImageView) convertView.findViewById(R.id.image_item);
 			temp = _listData.get(position);
 			viewHolder.title.setText(temp.getTitle());
-			viewHolder.createdBy.setText(temp.getAuthor_name());
+			viewHolder.createdBy.setText(_activity.getResources().getString(R.string.text_by)+" "+temp.getAuthor_name());
 			viewHolder.date.setText(DateUtil.toStringThaiDateFullFormat(temp.getCreate_date()));
 			Picasso.with(_activity).load(temp.getImgUrl())
-			.placeholder(R.drawable.loading).error(R.drawable.loading)
+			.placeholder(R.drawable.rounded_corners).error(R.drawable.rounded_corners)
 			.into(viewHolder.tumbnail);
 			convertView.setTag(viewHolder);
 		}else{

@@ -102,5 +102,6 @@
     <string name="about_link_page">http://dlt.agter-technology.co.th/#!about</string>
     <string name="register_success">สมัครสมาชิกเรียบร้อย</string>
     <string name="calendar_view">ปฎิทินกิจกรรม</string>
+    <string name="text_by">โดย</string>
 
 </resources>
