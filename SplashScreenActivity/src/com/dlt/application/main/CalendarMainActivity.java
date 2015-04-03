@@ -1,7 +1,6 @@
 package com.dlt.application.main;
 
 import java.text.DateFormatSymbols;
-import java.util.Calendar;
 import java.util.Locale;
 
 import android.annotation.SuppressLint;
@@ -24,7 +23,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.SectionIndexer;
 import android.widget.TextView;
 import com.hb.views.PinnedSectionListView;
 import com.hb.views.PinnedSectionListView.PinnedSectionListAdapter;

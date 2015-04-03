@@ -1,14 +1,11 @@
 package com.dlt.application.adapter;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,22 +16,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.dlt.application.adapter.InformationDetailListAdapter.OnBlogSelectedListener;
-import com.dlt.application.dto.BlogDto;
 import com.dlt.application.dto.MenuDto;
-import com.dlt.application.json.JSONParserForGetList;
-import com.dlt.application.main.AboutPageActivity;
-import com.dlt.application.main.ContactUsActivity;
-import com.dlt.application.main.ContentMainActivity;
 import com.dlt.application.main.InformDetailActivity;
-import com.dlt.application.main.KMSMenuActivity;
-import com.dlt.application.main.LoginPageActivity;
-import com.dlt.application.main.MamberPageActivity;
 import com.dlt.application.main.R;
-import com.dlt.application.main.SearchPageActivity;
-import com.dlt.application.main.TaxonomyActivity.MockMenuList;
-import com.dlt.application.model.User;
-import com.squareup.picasso.Picasso;
 
 public class TaxonomyListAdapter extends BaseAdapter{
 	private List<MenuDto> _listData;
