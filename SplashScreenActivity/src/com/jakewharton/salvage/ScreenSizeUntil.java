@@ -1,8 +1,6 @@
 package com.jakewharton.salvage;
 
 import com.dlt.application.main.R;
-import com.dlt.application.main.RightMenuActivity;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActionBar.LayoutParams;

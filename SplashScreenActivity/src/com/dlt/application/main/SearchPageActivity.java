@@ -3,18 +3,30 @@ package com.dlt.application.main;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.ActionBar.LayoutParams;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.DialogInterface.OnCancelListener;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.format.DateUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dlt.application.adapter.SearchListAdapter;
@@ -33,12 +45,13 @@ public class SearchPageActivity extends Activity {
 	private ListView actualListView;
 	private List<BlogDto> blogList;
 	private EditText cri;
+	private final Handler handler = new Handler();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search_page);
 		final int color = Color.parseColor("#1B89CA");
-		new ScreenSizeUntil(getApplicationContext(), this).changeColor(color,getIntent().getStringExtra("ActionBarTitle"));
+		changeColor(color,getIntent().getStringExtra("ActionBarTitle"));
 		
 		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);
 		actualListView = mPullRefreshListView.getRefreshableView();
@@ -72,6 +85,64 @@ public class SearchPageActivity extends Activity {
 		new GetSearchInformation().execute();
 		
 	}
+	@SuppressLint("NewApi") public void changeColor(int newColor,String str) {
+
+		// change ActionBar color just if an ActionBar is available
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+
+			Drawable colorDrawable = new ColorDrawable(newColor);
+			Drawable bottomDrawable = getResources().getDrawable(R.drawable.actionbar_bottom);
+			LayerDrawable ld = new LayerDrawable(new Drawable[] {colorDrawable, bottomDrawable });
+
+			if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+				ld.setCallback(drawableCallback);
+			} else {
+				getActionBar().setBackgroundDrawable(ld);
+				getActionBar().setDisplayShowHomeEnabled(false);
+				getActionBar().setDisplayShowCustomEnabled(true);
+				getActionBar().setDisplayShowTitleEnabled(false);
+				LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+				LayoutParams layout = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
+				View view = inflater.inflate(R.layout.actionbar_layout_news_page_2, null);
+				getActionBar().setCustomView(view,layout);
+				TextView txtView = (TextView) view.findViewById(R.id.textView1);
+//				Typeface type = Typeface.createFromAsset(getAssets(), "fonts/EDPenSook.ttf");
+//				txtView.setTypeface(type);
+				txtView.setText(str);
+				ImageView leftMenu = (ImageView) view.findViewById(R.id.imageView1);
+				leftMenu.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						Intent i = new Intent(SearchPageActivity.this,RightMenuActivity.class);
+						startActivity(i);
+						finish();
+					}
+				});
+				
+			}
+
+		}
+
+	}
+	
+	private Drawable.Callback drawableCallback = new Drawable.Callback() {
+		@SuppressLint("NewApi") @Override
+		public void invalidateDrawable(Drawable who) {
+			getActionBar().setBackgroundDrawable(who);
+		}
+
+		@Override
+		public void scheduleDrawable(Drawable who, Runnable what, long when) {
+			handler.postAtTime(what, when);
+		}
+
+		@Override
+		public void unscheduleDrawable(Drawable who, Runnable what) {
+			handler.removeCallbacks(what);
+		}
+	};
 	public class GetSearchInformation extends AsyncTask<String, Void, List<BlogDto>> implements OnCancelListener{
 		ProgressHUD mProgressHUD;
 

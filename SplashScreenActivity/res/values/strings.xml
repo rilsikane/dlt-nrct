@@ -103,5 +103,6 @@
     <string name="register_success">สมัครสมาชิกเรียบร้อย</string>
     <string name="calendar_view">ปฎิทินกิจกรรม</string>
     <string name="text_by">โดย</string>
+    <string name="text_complete">เสร็จ</string>
 
 </resources>

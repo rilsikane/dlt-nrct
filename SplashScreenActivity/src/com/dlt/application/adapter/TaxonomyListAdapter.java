@@ -70,7 +70,7 @@ public class TaxonomyListAdapter extends BaseAdapter{
 			viewHolder.title.setText(temp.getName());
 			//Picasso.with(_activity).load(_activity.getResources().getDrawable(R.drawable.ic_launcher));
 			
-			viewHolder.iconImg.setImageDrawable(_activity.getResources().getDrawable(R.drawable.ic_launcher));
+			viewHolder.iconImg.setImageDrawable(_activity.getResources().getDrawable(R.drawable.rounded_corners));
 			viewHolder.listLayout.setOnClickListener(new OnTaxanomySelectedListener(position,convertView,temp));
 			
 		return convertView;

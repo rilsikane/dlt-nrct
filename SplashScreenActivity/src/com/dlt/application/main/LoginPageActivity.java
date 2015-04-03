@@ -3,19 +3,28 @@ package com.dlt.application.main;
 import java.io.Serializable;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.ActionBar.LayoutParams;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.StrictMode;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dlt.application.dto.CommonDto;
@@ -40,7 +49,7 @@ public class LoginPageActivity extends FragmentActivity {
 	String emailTxt,passTxt;
 	private LoginButton loginFbButton;
 	private UiLifecycleHelper uiHelper;
-
+	private final Handler handler = new Handler();
 
 
 	 private Session.StatusCallback callback = new Session.StatusCallback() {
@@ -70,12 +79,11 @@ public class LoginPageActivity extends FragmentActivity {
 		setContentView(R.layout.activity_login_page);
 		final int color = Color.parseColor("#1B89CA");
 
-		new ScreenSizeUntil(getApplicationContext(), this).changeColor(color,
-				getIntent().getStringExtra("ActionBarTitle"));
+		changeColor(color,getIntent().getStringExtra("ActionBarTitle"));
 		email = (EditText) findViewById(R.id.editText1);
 		password = (EditText) findViewById(R.id.editText2);
 		newRegistration = (TextView) findViewById(R.id.textView3);
-		loginFbButton = (LoginButton) findViewById(R.id.imageView1);
+		loginFbButton = (LoginButton) findViewById(R.id.fbLogin);
 		
 		
 		newRegistration.setOnClickListener(new OnClickListener() {
@@ -131,7 +139,64 @@ public class LoginPageActivity extends FragmentActivity {
         });
 
 	}
+	@SuppressLint("NewApi") public void changeColor(int newColor,String str) {
 
+		// change ActionBar color just if an ActionBar is available
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+
+			Drawable colorDrawable = new ColorDrawable(newColor);
+			Drawable bottomDrawable = getResources().getDrawable(R.drawable.actionbar_bottom);
+			LayerDrawable ld = new LayerDrawable(new Drawable[] {colorDrawable, bottomDrawable });
+
+			if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+				ld.setCallback(drawableCallback);
+			} else {
+				getActionBar().setBackgroundDrawable(ld);
+				getActionBar().setDisplayShowHomeEnabled(false);
+				getActionBar().setDisplayShowCustomEnabled(true);
+				getActionBar().setDisplayShowTitleEnabled(false);
+				LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+				LayoutParams layout = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
+				View view = inflater.inflate(R.layout.actionbar_layout_news_page_2, null);
+				getActionBar().setCustomView(view,layout);
+				TextView txtView = (TextView) view.findViewById(R.id.textView1);
+//				Typeface type = Typeface.createFromAsset(getAssets(), "fonts/EDPenSook.ttf");
+//				txtView.setTypeface(type);
+				txtView.setText(str);
+				ImageView leftMenu = (ImageView) view.findViewById(R.id.imageView1);
+				leftMenu.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						Intent i = new Intent(LoginPageActivity.this,NrctMainActivity.class);
+						startActivity(i);
+						finish();
+					}
+				});
+				
+			}
+
+		}
+
+	}
+	
+	private Drawable.Callback drawableCallback = new Drawable.Callback() {
+		@SuppressLint("NewApi") @Override
+		public void invalidateDrawable(Drawable who) {
+			getActionBar().setBackgroundDrawable(who);
+		}
+
+		@Override
+		public void scheduleDrawable(Drawable who, Runnable what, long when) {
+			handler.postAtTime(what, when);
+		}
+
+		@Override
+		public void unscheduleDrawable(Drawable who, Runnable what) {
+			handler.removeCallbacks(what);
+		}
+	};
 	public class CheckLogin extends AsyncTask<String, Void, CommonDto>
 			implements OnCancelListener {
 		ProgressHUD mProgressHUD;

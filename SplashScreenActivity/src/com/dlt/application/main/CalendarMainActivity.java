@@ -9,7 +9,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
@@ -193,13 +192,13 @@ public class CalendarMainActivity extends Activity{
 				getActionBar().setDisplayShowTitleEnabled(false);
 				LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				LayoutParams layout = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
-				View view = inflater.inflate(R.layout.actionbar_inform_detail, null);
+				View view = inflater.inflate(R.layout.actionbar_layout_news_page_2, null);
 				getActionBar().setCustomView(view,layout);
-				TextView txtView = (TextView) view.findViewById(R.id.title);
-				Typeface type = Typeface.createFromAsset(getAssets(), "fonts/EDPenSook.ttf");
-				txtView.setTypeface(type);
+				TextView txtView = (TextView) view.findViewById(R.id.textView1);
+//				Typeface type = Typeface.createFromAsset(getAssets(), "fonts/EDPenSook.ttf");
+//				txtView.setTypeface(type);
 				txtView.setText(str);
-				ImageView leftMenu = (ImageView) view.findViewById(R.id.leftMenu);
+				ImageView leftMenu = (ImageView) view.findViewById(R.id.imageView1);
 				leftMenu.setOnClickListener(new OnClickListener() {
 					
 					@Override
