@@ -1,7 +1,7 @@
 Aphid-FlipView-Library/*
 *.class
 SplashScreenActivity/gen
-SplashScreenActivity/bin/*
+SplashScreenActivity/bin
 *.jar
 */R.java
 ORMDroid/

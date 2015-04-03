@@ -8,7 +8,8 @@
         android:id="@+id/click_relative"
         android:layout_width="fill_parent"
         android:layout_height="40dp"
-        android:paddingRight="5dp" >
+        android:paddingRight="5dp" 
+        android:background="#badaef">
 
         <TextView
             android:id="@+id/textView1"
@@ -19,7 +20,7 @@
             android:layout_marginLeft="10dp"
             android:text="Medium Text"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#8dc375" />
+            android:textColor="#1B89CA" />
     </RelativeLayout>
 
 </LinearLayout>

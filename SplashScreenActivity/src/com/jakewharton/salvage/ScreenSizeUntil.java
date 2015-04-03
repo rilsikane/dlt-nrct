@@ -1,7 +1,7 @@
 package com.jakewharton.salvage;
 
-import com.nrct.application.main.R;
-import com.nrct.application.main.RightMenuActivity;
+import com.dlt.application.main.R;
+import com.dlt.application.main.RightMenuActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

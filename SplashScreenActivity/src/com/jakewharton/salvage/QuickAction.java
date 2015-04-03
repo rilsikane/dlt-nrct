@@ -3,7 +3,7 @@ package com.jakewharton.salvage;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.nrct.application.main.R;
+import com.dlt.application.main.R;
 
 import android.content.Context;
 

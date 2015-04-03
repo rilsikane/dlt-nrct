@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nrct.application.main"
-    android:versionCode="2"
-    android:versionName="2.0" >
+    package="com.dlt.application.main"
+    android:versionCode="3"
+    android:versionName="3.0" >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -26,7 +26,7 @@
         android:largeHeap="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.nrct.application.main.SplashScreenActivity"
+            android:name="com.dlt.application.main.SplashScreenActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
@@ -37,67 +37,67 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.nrct.application.main.RightMenuActivity"
+            android:name="com.dlt.application.main.RightMenuActivity"
             android:label="@string/title_activity_right_menu"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.InformDetailActivity"
+            android:name="com.dlt.application.main.InformDetailActivity"
             android:label="@string/title_activity_inform_detail"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.KMSMenuActivity"
+            android:name="com.dlt.application.main.KMSMenuActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.NrctMainActivity"
+            android:name="com.dlt.application.main.NrctMainActivity"
             android:label="@string/title_activity_splash_screen"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.ContentMainActivity"
+            android:name="com.dlt.application.main.ContentMainActivity"
             android:label="@string/title_activity_content_main"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.ComentMainActivity"
+            android:name="com.dlt.application.main.ComentMainActivity"
             android:label="@string/title_activity_coment_main"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.ProfessorMainActivity"
+            android:name="com.dlt.application.main.ProfessorMainActivity"
             android:label="@string/title_activity_professor_main"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.ProfessorContentActivity"
+            android:name="com.dlt.application.main.ProfessorContentActivity"
             android:label="@string/title_activity_professor_content"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.KatooContentActivity"
+            android:name="com.dlt.application.main.KatooContentActivity"
             android:label="@string/title_activity_katoo_content"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.ProfPostPageActivity"
+            android:name="com.dlt.application.main.ProfPostPageActivity"
             android:label="@string/title_activity_prof_post_page"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.AboutPageActivity"
+            android:name="com.dlt.application.main.AboutPageActivity"
             android:label="@string/title_activity_about_page"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.SearchPageActivity"
+            android:name="com.dlt.application.main.SearchPageActivity"
             android:label="@string/title_activity_search_page"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.ContactUsActivity"
+            android:name="com.dlt.application.main.ContactUsActivity"
             android:label="@string/title_activity_cotact_us"
             android:screenOrientation="portrait" >
         </activity>
@@ -107,27 +107,27 @@
             android:value="nrct" />
 
         <activity
-            android:name="com.nrct.application.main.MamberPageActivity"
+            android:name="com.dlt.application.main.MamberPageActivity"
             android:label="@string/title_activity_mamber_page"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.LoginPageActivity"
+            android:name="com.dlt.application.main.LoginPageActivity"
             android:label="@string/title_activity_login_page"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.RegistrationPageActivity"
+            android:name="com.dlt.application.main.RegistrationPageActivity"
             android:label="@string/title_activity_registration_page"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.PublishDocumentPageActivity"
+            android:name="com.dlt.application.main.PublishDocumentPageActivity"
             android:label="@string/title_activity_publish_document_page"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.PubDocContentActivity"
+            android:name="com.dlt.application.main.PubDocContentActivity"
             android:label="@string/title_activity_pub_doc_content"
             android:screenOrientation="portrait" >
         </activity>
@@ -141,38 +141,38 @@
             android:value="@string/app_id" />
 
         <activity
-            android:name="com.nrct.application.main.MindMapMainActivity"
+            android:name="com.dlt.application.main.MindMapMainActivity"
             android:label="@string/title_activity_mind_map_main"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.AndroidGalleryMainActivity"
+            android:name="com.dlt.application.main.AndroidGalleryMainActivity"
             android:label="@string/title_activity_android_gallery_main"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.ReferenceMainActivity"
+            android:name="com.dlt.application.main.ReferenceMainActivity"
             android:label="@string/title_activity_reference_main"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.ReferenceDetailMainActivity"
+            android:name="com.dlt.application.main.ReferenceDetailMainActivity"
             android:label="@string/title_activity_reference_detail_main"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.InformDetailSubMainActivity"
+            android:name="com.dlt.application.main.InformDetailSubMainActivity"
             android:label="@string/title_activity_reference_detail_main"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.CalendarMainActivity"
+            android:name="com.dlt.application.main.CalendarMainActivity"
             android:label="@string/title_activity_reference_detail_main"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.nrct.application.main.TaxonomyActivity"
+            android:name="com.dlt.application.main.TaxonomyActivity"
             android:label="@string/title_activity_reference_detail_main"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
