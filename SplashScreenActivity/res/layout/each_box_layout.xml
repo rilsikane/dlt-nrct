@@ -28,9 +28,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="15dp"
-            android:maxLines="1"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:minLines="1"
+            android:maxLines="2"
             android:textColor="#ffffff" />
 
     </RelativeLayout>

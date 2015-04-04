@@ -7,7 +7,6 @@ import java.util.List;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +18,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 
-import com.dlt.application.dto.MenuDto;
 import com.dlt.application.dto.SlideDto;
 import com.dlt.application.main.R;
 import com.dlt.application.main.Utils;
@@ -84,9 +82,10 @@ public class FlipViewAdapter extends BaseAdapter{
 		        viewPager.setInterval(3000);
 		        viewPager.startAutoScroll();
 		        if(tempList !=null && tempList.size()>0){
-		        viewPager.setCurrentItem(Integer.MAX_VALUE / 2 - Integer.MAX_VALUE / 2 % tempList.size());
+		        	viewPager.setCurrentItem(Integer.MAX_VALUE / 2 - Integer.MAX_VALUE / 2 % tempList.size());
 		        }
-				adapter = new GridViewImageAdapter(appContext, tempList,columnWidth);
+		        int newColumnHight = ((utils.getScreenHeight()-490)*50)/100;
+				adapter = new GridViewImageAdapter(appContext, tempList,newColumnHight);
 				gridView.setAdapter(adapter);
 				convertView.setTag(viewHolder);
 			}else{
@@ -107,7 +106,8 @@ public class FlipViewAdapter extends BaseAdapter{
 				convertView = inflater.inflate(R.layout.flip_grid_view, null);
 				gridView = (GridView) convertView.findViewById(R.id.grid_view);
 				InitilizeGridLayout();
-				adapter = new GridViewImageAdapter(appContext, tempList,columnWidth);
+				int newColumnHight = ((utils.getScreenHeight())*30)/100;
+				adapter = new GridViewImageAdapter(appContext, tempList,newColumnHight);
 				gridView.setAdapter(adapter);
 				convertView.setTag(viewHolder);
 			}else{
@@ -142,7 +142,7 @@ public class FlipViewAdapter extends BaseAdapter{
 		public static final int NUM_OF_COLUMNS = 2;
 
 		// Gridview image padding
-		public static final int GRID_PADDING = 10; // in dp
+		public static final int GRID_PADDING = 5; // in dp
 
 		// SD card image directory
 		public static final String PHOTO_ALBUM = "NAT";

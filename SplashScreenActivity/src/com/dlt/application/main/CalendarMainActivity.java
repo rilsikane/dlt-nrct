@@ -2,6 +2,7 @@ package com.dlt.application.main;
 
 import java.text.DateFormatSymbols;
 import java.util.Locale;
+import java.util.Random;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar.LayoutParams;
@@ -23,6 +24,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.hb.views.PinnedSectionListView;
 import com.hb.views.PinnedSectionListView.PinnedSectionListAdapter;
 
@@ -43,8 +46,6 @@ public class CalendarMainActivity extends Activity{
 	}
 	public class SimpleAdapter extends ArrayAdapter<Item> implements PinnedSectionListAdapter {
 
-		private final int[] COLORS = new int[] {android.R.color.white};
-
 		public SimpleAdapter(Context context, int resource,int textViewResourceId) {
 			super(context, resource, textViewResourceId);
 			generateDataset();
@@ -52,57 +53,27 @@ public class CalendarMainActivity extends Activity{
 
 		public void generateDataset() {
  
-//				Item section = new Item(Item.SECTION,"มกราคม");
-//				section.sectionPosition = 0;
-//				section.listPosition = 1;
-//				onSectionAdded(section, 0);
-//				add(section);
-//
-//				for (int j = 0; j < 3; j++) {
-//					Item item = new Item(Item.ITEM,section.text.toUpperCase(Locale.ENGLISH) + " - "+ j);
-//					item.sectionPosition = 0;
-//					item.listPosition = 1;
-//					add(item);
-//				}
-//				
-//				Item section2 = new Item(Item.SECTION,"กุมภาพันธ์");
-//				section2.sectionPosition = 1;
-//				section2.listPosition = 2;
-//				onSectionAdded(section2, 1);
-//				add(section2);
-//
-//				for (int j = 0; j < 2; j++) {
-//					Item item = new Item(Item.ITEM,section2.text.toUpperCase(Locale.ENGLISH) + " - "+ j);
-//					item.sectionPosition = 1;
-//					item.listPosition = 2;
-//					add(item);
-//				}
-//				
-//				Item section3 = new Item(Item.SECTION,"มีนาคม");
-//				section3.sectionPosition = 2;
-//				section3.listPosition = 3;
-//				onSectionAdded(section3, 2);
-//				add(section3);
-//
-//				for (int j = 0; j < 10; j++) {
-//					Item item = new Item(Item.ITEM,section3.text.toUpperCase(Locale.ENGLISH) + " - "+ j);
-//					item.sectionPosition = 2;
-//					item.listPosition = 3;
-//					add(item);
-//				}
 			
 			for(int i=0;i<12;i++){
-				Item section = new Item(Item.SECTION,getMonth(i));
+				Item section = new Item(Item.SECTION,getMonth(i),false);
 				section.sectionPosition = i;
 				section.listPosition = i+1;
 				onSectionAdded(section, i);
 				add(section);
-				for (int j = 0; j < 1; j++) {
-				Item item = new Item(Item.ITEM,section.text.toUpperCase(Locale.ENGLISH) + " - "+ j);
-				item.sectionPosition = 0;
-				item.listPosition = 1;
-				add(item);
-			}
+				if(i%2==0){
+					for (int j = 0; j < 2; j++) {		
+						Item item = new Item(Item.ITEM,section.text.toUpperCase(Locale.ENGLISH) + " - "+ j,false);
+						item.sectionPosition = 0;
+						item.listPosition = 1;
+						add(item);				
+					}
+				}else{	
+					Item item = new Item(Item.ITEM,"",true);
+					item.sectionPosition = 0;
+					item.listPosition = 1;
+					add(item);								
+				}
+				
 			}
 
 		}
@@ -115,20 +86,20 @@ public class CalendarMainActivity extends Activity{
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {			
-//			TextView view = (TextView) super.getView(position, convertView,parent);
-//			view.setTextColor(Color.DKGRAY);
-//			view.setTag("" + position);
 			LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			convertView = inflater.inflate(R.layout.each_calendar_layout, null);
 			Item item = getItem(position);
+			if(item.isEmpty==true){
+				convertView = inflater.inflate(R.layout.each_calendar_layout_empty, null);
+			}else{
+				convertView = inflater.inflate(R.layout.each_calendar_layout, null);
+			}					
 			if (item.type == Item.SECTION) {
 				convertView = inflater.inflate(R.layout.each_calendar_layout_two, null);
 				TextView titleSection = (TextView) convertView.findViewById(R.id.textView1);
 				RelativeLayout rel = (RelativeLayout) convertView.findViewById(R.id.click_relative);
-				rel.setBackgroundColor(parent.getResources().getColor(COLORS[item.sectionPosition % COLORS.length]));
 				titleSection.setText(item.text);
-//				view.setBackgroundColor(parent.getResources().getColor(COLORS[item.sectionPosition % COLORS.length]));
 			}
+			
 			return convertView;
 		} 
 
@@ -155,13 +126,15 @@ public class CalendarMainActivity extends Activity{
 
 		public final int type;
 		public final String text;
+		public final boolean isEmpty;
 
 		public int sectionPosition;
 		public int listPosition;
 
-		public Item(int type, String text) {
+		public Item(int type, String text,boolean isEmpty) {
 			this.type = type;
 			this.text = text;
+			this.isEmpty=isEmpty;
 		}
 
 		@Override
@@ -192,12 +165,13 @@ public class CalendarMainActivity extends Activity{
 				getActionBar().setDisplayShowTitleEnabled(false);
 				LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				LayoutParams layout = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
-				View view = inflater.inflate(R.layout.actionbar_layout_news_page_2, null);
+				View view = inflater.inflate(R.layout.actionbar_layout_calendar_page, null);
 				getActionBar().setCustomView(view,layout);
 				TextView txtView = (TextView) view.findViewById(R.id.textView1);
 //				Typeface type = Typeface.createFromAsset(getAssets(), "fonts/EDPenSook.ttf");
 //				txtView.setTypeface(type);
 				txtView.setText(str);
+				TextView todayTxt = (TextView) view.findViewById(R.id.textView2);
 				ImageView leftMenu = (ImageView) view.findViewById(R.id.imageView1);
 				leftMenu.setOnClickListener(new OnClickListener() {
 					
@@ -209,7 +183,14 @@ public class CalendarMainActivity extends Activity{
 						finish();
 					}
 				});
-				
+				todayTxt.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						Toast.makeText(getApplicationContext(), "Link To taday", Toast.LENGTH_SHORT).show();
+					}
+				});
 			}
 
 		}

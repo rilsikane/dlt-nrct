@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="ปี 2558"
+            android:text="2558"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <ImageView

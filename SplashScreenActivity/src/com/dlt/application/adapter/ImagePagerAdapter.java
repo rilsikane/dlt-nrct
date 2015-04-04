@@ -3,6 +3,7 @@ package com.dlt.application.adapter;
 import java.util.List;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -35,7 +36,10 @@ public class ImagePagerAdapter extends RecyclingPagerAdapter {
 		ViewHolder holder;
 		if (convertView == null) {
 			holder = new ViewHolder();
-			convertView = holder.imageView = new ImageView(context);
+			LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			convertView = inflater.inflate(R.layout.viewpager_image_layout, null);			
+			holder.imageView = (ImageView) convertView.findViewById(R.id.imageView1);			
+//			convertView = holder.imageView = new ImageView(context);
 			convertView.setTag(holder);
 
 		} else {
