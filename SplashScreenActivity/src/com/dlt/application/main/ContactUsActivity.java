@@ -1,18 +1,14 @@
 package com.dlt.application.main;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.ActionBar.LayoutParams;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
-import android.location.Criteria;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,11 +19,20 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.jakewharton.salvage.ScreenSizeUntil;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-@SuppressLint("SetJavaScriptEnabled") public class ContactUsActivity extends Activity implements LocationListener {
-	private Location mostRecentLocation;
+@SuppressLint({ "SetJavaScriptEnabled", "NewApi" }) public class ContactUsActivity extends Activity {
+	private GoogleMap googleMap;
+	private double latitude = 13.798966;
+	private double longitude = 100.553194;
 	private final Handler handler = new Handler();
 	WebView wv;
 	private static final String MAP_URL = "http://gmaps-samples.googlecode.com/svn/trunk/articles-android-webmap/simple-android-map.html";
@@ -37,9 +42,41 @@ import com.jakewharton.salvage.ScreenSizeUntil;
 		setContentView(R.layout.activity_cotact_us);
 		final int color = Color.parseColor("#1B89CA");
 		changeColor(color,getIntent().getStringExtra("ActionBarTitle"));
-		getLocation();
-	    setupWebView();
+		try{
+			initilizeMap();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+//		getLocation();
+//	    setupWebView();
 	}
+	private void initilizeMap() {
+        if (googleMap == null) {
+            googleMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+                        
+            // create marker
+            MarkerOptions marker = new MarkerOptions().position(new LatLng(latitude, longitude)).title("");
+            marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.rounded_corners_pin));
+            // adding marker
+            googleMap.addMarker(marker);
+            
+            CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(latitude, longitude)).zoom(17).build();
+            googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+            
+            googleMap.setMyLocationEnabled(false);
+            // check if map is created successfully or not
+            if (googleMap == null) {
+                Toast.makeText(getApplicationContext(),"Sorry! unable to create maps", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+ 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initilizeMap();
+    }
+ 
 	@SuppressLint("NewApi") public void changeColor(int newColor,String str) {
 
 		// change ActionBar color just if an ActionBar is available
@@ -98,48 +135,7 @@ import com.jakewharton.salvage.ScreenSizeUntil;
 			handler.removeCallbacks(what);
 		}
 	};
-
-	/**
-	 * The Location Manager manages location providers. This code searches for
-	 * the best provider of data (GPS, WiFi/cell phone tower lookup, some other
-	 * mechanism) and finds the last known location.
-	 **/
-	private void getLocation() {
-		LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-		Criteria criteria = new Criteria();
-		criteria.setAccuracy(Criteria.ACCURACY_FINE);
-		String provider = locationManager.getBestProvider(criteria, true);
-
-		// In order to make sure the device is getting location, request
-		// updates. locationManager.requestLocationUpdates(provider, 1, 0,
-		// this);
-		mostRecentLocation = locationManager.getLastKnownLocation(provider);
-	}
-
-	@Override
-	public void onLocationChanged(Location arg0) {
-		// TODO Auto-generated method stub
-		mostRecentLocation = arg0;
-	}
-
-	@Override
-	public void onProviderDisabled(String provider) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void onProviderEnabled(String provider) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void onStatusChanged(String provider, int status, Bundle extras) {
-		// TODO Auto-generated method stub
-
-	}
-
+	
 	/** Sets up the WebView object and loads the URL of the page **/
 	private void setupWebView() {
 		final String centerURL = "javascript:centerAt(13.798966,100.553194)";

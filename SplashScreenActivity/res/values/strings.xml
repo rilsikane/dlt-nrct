@@ -52,7 +52,7 @@
     <string name="title_activity_search_page">SearchPageActivity</string>
     <string name="title_activity_cotact_us">CotactUsActivity</string>
     <string name="title1">กรมการขนส่งทางบก</string>
-    <string name="title2">196 ถนน พหลโยธิน แขวง จตุจักร เขต จตุจักร กรุงเทพมหานคร 10900</string>
+    <string name="title2">1032 ถนน พหลโยธิน แขวง จตุจักร เขต จตุจักร กรุงเทพมหานคร 10900</string>
     <string name="title3"></string>
     <string name="titleMobile">โทรศัพท์ :</string>
     <string name="title4">0-2271-888</string>
@@ -104,5 +104,7 @@
     <string name="calendar_view">ปฎิทินกิจกรรม</string>
     <string name="text_by">โดย</string>
     <string name="text_complete">เสร็จ</string>
+    <string name="google_map_api_key_local">AIzaSyCVSYaWu2wo-YXhyHy3AE7PsBcDRVqSJeE</string>
+    <string name="google_map_api_key_dlt">AIzaSyAuFtVILzv0zkA8FJnWoA1ZaNA-5DJyTyw</string>
 
 </resources>

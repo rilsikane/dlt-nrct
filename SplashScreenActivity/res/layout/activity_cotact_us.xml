@@ -29,23 +29,30 @@
                 android:layout_height="200dp"
                 android:background="#bababa" >
 
-                <WebView
-                    android:id="@+id/webView1"
+                <!-- <WebView -->
+                <!-- android:id="@+id/webView1" -->
+                <!-- android:layout_width="match_parent" -->
+                <!-- android:layout_height="match_parent" -->
+                <!-- android:layout_centerHorizontal="true" -->
+                <!-- android:layout_centerVertical="true" /> -->
+
+                <fragment
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.MapFragment"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true" />
-                
             </RelativeLayout>
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="@string/title1"
                 android:layout_alignLeft="@+id/mapLayout"
                 android:layout_below="@+id/mapLayout"
+                android:layout_marginTop="15dp"
+                android:text="@string/title1"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
@@ -138,9 +145,9 @@
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/textView10"
                 android:layout_marginTop="10dp"
-                android:gravity="top"
                 android:background="#d8d8d8"
                 android:ems="50"
+                android:gravity="top"
                 android:inputType="textMultiLine" >
             </EditText>
 
@@ -152,8 +159,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="22dp"
                 android:background="@drawable/button_background"
-                android:textColor="#ffffff"
-                android:text="@string/title10" />
+                android:text="@string/title10"
+                android:textColor="#ffffff" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -200,7 +207,6 @@
                 android:layout_toRightOf="@+id/textView9"
                 android:text="@string/callCenter"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
         </RelativeLayout>
     </ScrollView>
 
