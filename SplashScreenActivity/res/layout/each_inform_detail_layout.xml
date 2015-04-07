@@ -16,7 +16,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:scaleType="fitXY"
-            android:src="@drawable/kms_icon_1024"/>
+            android:src="@drawable/rounded_corners"/>
 
         <View
             android:layout_width="fill_parent"

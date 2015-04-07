@@ -17,14 +17,12 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.dlt.application.adapter.KmsMenuListAdapter.OnMenuSelectedListener;
 import com.dlt.application.dto.BlogDto;
-import com.dlt.application.dto.MenuDto;
 import com.dlt.application.json.JSONParserForGetList;
 import com.dlt.application.main.ContentMainActivity;
 import com.dlt.application.main.R;
-import com.dlt.application.model.Menu;
 import com.dlt.application.utils.DateUtil;
 import com.dlt.application.utils.RoundedTransformation;
 import com.squareup.picasso.Picasso;
@@ -71,10 +69,12 @@ public class InformationDetailListAdapter extends BaseAdapter{
 			viewHolder.click_relative = (RelativeLayout) convertView.findViewById(R.id.click_relative);
 			viewHolder.tumbnail = (ImageView) convertView.findViewById(R.id.image_item);
 			temp = _listData.get(position);
+			
 			viewHolder.title.setText(temp.getTitle());
 			viewHolder.createdBy.setText(_activity.getResources().getString(R.string.text_by)+" "+temp.getAuthor_name());
 			viewHolder.date.setText(DateUtil.toStringThaiDateFullFormat(temp.getCreate_date()));
-			Picasso.with(_activity).load(temp.getImgUrl())
+			
+			Picasso.with(_activity).load(temp.getImgUrl()==""?"http://www.google.co.th":temp.getImgUrl())
 			.transform(new RoundedTransformation(50, 4))
 			.placeholder(R.drawable.rounded_corners).error(R.drawable.rounded_corners)
 			.into(viewHolder.tumbnail);

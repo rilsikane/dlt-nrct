@@ -33,6 +33,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dlt.application.adapter.InformationDetailListAdapter;
+import com.dlt.application.animator.ActivityAnimator;
 import com.dlt.application.dto.BlogDto;
 import com.dlt.application.json.JSONParserForGetList;
 import com.dlt.application.utils.DateUtil;
@@ -178,7 +179,18 @@ public class CalendarMainActivity extends Activity{
 	}
 	@Override
 	public void onBackPressed(){
-		this.finish();
+		back(null);
+	}
+	public void back(View v) {
+		Intent i = new Intent(this,NrctMainActivity.class);
+		startActivity(i);
+		finish();
+		try {
+			ActivityAnimator anim = new ActivityAnimator();
+			anim.getClass().getMethod(this.getIntent().getExtras().getString("backAnimation")+ "Animation", Activity.class).invoke(anim, this);
+		} catch (Exception e) {
+			Toast.makeText(this, "An error occured " + e.toString(),Toast.LENGTH_LONG).show();
+		}
 	}
 	@SuppressLint("NewApi") public void changeColor(int newColor,String str) {
 
@@ -211,9 +223,7 @@ public class CalendarMainActivity extends Activity{
 					@Override
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
-						Intent i = new Intent(CalendarMainActivity.this,NrctMainActivity.class);
-						startActivity(i);
-						finish();
+						back(null);
 					}
 				});
 				todayTxt.setOnClickListener(new OnClickListener() {

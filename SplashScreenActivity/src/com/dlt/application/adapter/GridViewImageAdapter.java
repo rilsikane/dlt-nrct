@@ -16,6 +16,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dlt.application.main.CalendarMainActivity;
 import com.dlt.application.main.InformDetailActivity;
@@ -172,6 +173,7 @@ import com.squareup.picasso.Picasso;
 					}
 				}else if("888".equals(id)){
 					i = new Intent(_activity,KMSMenuActivity.class);
+					i.putExtra("backAnimation", "fade");
 					i.putExtra("ActionBarTitle", _activity.getResources().getString(R.string.add_kms_menu_text));
 					i.putExtra("StateFrom", 1);
 					_activity.startActivity(i);
@@ -186,12 +188,14 @@ import com.squareup.picasso.Picasso;
 					_activity.finish();
 				}else if("14".equals(id)){
 					i = new Intent(_activity, PublishDocumentPageActivity.class);
+					i.putExtra("backAnimation", "fade");
 					i.putExtra("ActionBarText", _str);
 					_activity.startActivity(i);
 					_activity.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 					_activity.finish();
 				}else if("72".equals(id)){
 					i = new Intent(_activity, CalendarMainActivity.class);
+					i.putExtra("backAnimation", "fade");
 					i.putExtra("ActionBarText", _str);
 					_activity.startActivity(i);
 					_activity.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);

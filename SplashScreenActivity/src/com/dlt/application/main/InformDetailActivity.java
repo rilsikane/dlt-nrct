@@ -10,7 +10,6 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
@@ -35,7 +34,6 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.jakewharton.salvage.ProgressHUD;
-import com.jakewharton.salvage.ScreenSizeUntil;
 
 @SuppressLint("NewApi") public class InformDetailActivity extends Activity {
 	private PullToRefreshListView mPullRefreshListView;
@@ -101,9 +99,7 @@ import com.jakewharton.salvage.ScreenSizeUntil;
 					@Override
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
-						Intent i = new Intent(InformDetailActivity.this,NrctMainActivity.class);
-						startActivity(i);
-						finish();
+						back(null);
 					}
 				});
 			}
