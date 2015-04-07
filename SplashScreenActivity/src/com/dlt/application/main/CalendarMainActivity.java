@@ -1,6 +1,9 @@
 package com.dlt.application.main;
 
 import java.text.DateFormatSymbols;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
@@ -8,11 +11,14 @@ import android.annotation.SuppressLint;
 import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.DialogInterface.OnCancelListener;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -26,28 +32,47 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dlt.application.adapter.InformationDetailListAdapter;
+import com.dlt.application.dto.BlogDto;
+import com.dlt.application.json.JSONParserForGetList;
+import com.dlt.application.utils.DateUtil;
 import com.hb.views.PinnedSectionListView;
 import com.hb.views.PinnedSectionListView.PinnedSectionListAdapter;
+import com.jakewharton.salvage.ProgressHUD;
 
 public class CalendarMainActivity extends Activity{
 	private final Handler handler = new Handler();
 	private boolean addPadding;
 	private PinnedSectionListView listView;
+	private TextView currentYear;
+	private int cuurentYear;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_calendar_page); 
 		final int color = Color.parseColor("#1B89CA"); 
 		changeColor(color, getResources().getString(R.string.calendar_view));
-		
+		currentYear = (TextView) findViewById(R.id.textView1);
+		try {
+			Date currentDate = DateUtil.getCurrentDateTh();
+			cuurentYear = Integer.parseInt(DateUtil.toStringThaiDateBySimpleFormat(currentDate, DateUtil.SIMPLE_YEAR_PATTERN));
+			currentYear.setText((cuurentYear+543)+"");
+			new GetAllCalendar().execute();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		listView = (PinnedSectionListView) findViewById(R.id.list);
-		SimpleAdapter adapter = new SimpleAdapter(this,android.R.layout.simple_list_item_1, android.R.id.text1);
-		listView.setAdapter(adapter);
+		
 	}
 	public class SimpleAdapter extends ArrayAdapter<Item> implements PinnedSectionListAdapter {
 
-		public SimpleAdapter(Context context, int resource,int textViewResourceId) {
+		private List<BlogDto> calendarList;
+		private List<Item> itemList = new ArrayList<Item>();
+		
+		public SimpleAdapter(Context context, int resource,int textViewResourceId,List<BlogDto> calendarList) {
 			super(context, resource, textViewResourceId);
+			this.calendarList = calendarList;
 			generateDataset();
 		}
 
@@ -58,22 +83,29 @@ public class CalendarMainActivity extends Activity{
 				Item section = new Item(Item.SECTION,getMonth(i),false);
 				section.sectionPosition = i;
 				section.listPosition = i+1;
-				onSectionAdded(section, i);
-				add(section);
-				if(i%2==0){
-					for (int j = 0; j < 2; j++) {		
-						Item item = new Item(Item.ITEM,section.text.toUpperCase(Locale.ENGLISH) + " - "+ j,false);
-						item.sectionPosition = 0;
-						item.listPosition = 1;
-						add(item);				
-					}
-				}else{	
-					Item item = new Item(Item.ITEM,"",true);
-					item.sectionPosition = 0;
-					item.listPosition = 1;
-					add(item);								
+//				onSectionAdded(section, i);
+//				add(section);
+				itemList.add(section);
+//				if(i%2==0){
+//					for (int j = 0; j < 2; j++) {		
+//						Item item = new Item(Item.ITEM,section.text.toUpperCase(Locale.ENGLISH) + " - "+ j,false);
+//						item.sectionPosition = 0;
+//						item.listPosition = 1;
+//						add(item);				
+//					}
+//				}else{	
+//					Item item = new Item(Item.ITEM,"",true);
+//					item.sectionPosition = 0;
+//					item.listPosition = 1;
+//					add(item);								
+//				}
+			}
+			for(BlogDto blogDto : calendarList){
+				int year = Integer.parseInt(DateUtil.toStringThaiDateBySimpleFormat(blogDto.getEventEnd(), DateUtil.SIMPLE_YEAR_PATTERN));
+				if(year==cuurentYear){
+					Item section = itemList.get(blogDto.getEventStart().getMonth());
+					//section.text = blogDto
 				}
-				
 			}
 
 		}
@@ -141,6 +173,7 @@ public class CalendarMainActivity extends Activity{
 		public String toString() {
 			return text;
 		}
+		
 
 	}
 	@Override
@@ -215,5 +248,40 @@ public class CalendarMainActivity extends Activity{
 	};
 	public String getMonth(int month) {
 	    return new DateFormatSymbols(new Locale("th", "TH")).getMonths()[month];
+	}
+	public class GetAllCalendar extends AsyncTask<String, Void, List<BlogDto>> implements OnCancelListener{
+		ProgressHUD mProgressHUD;
+		String menu_id;
+		
+    	@Override
+    	protected void onPreExecute() {
+        	mProgressHUD = ProgressHUD.show(CalendarMainActivity.this,"Loading Content...", true,true,this);
+    		super.onPreExecute();
+    	}
+		@Override
+		protected List<BlogDto> doInBackground(String... params) {
+			// TODO Auto-generated method stub
+			List<BlogDto> newList = JSONParserForGetList.getInstance().getCalendar();
+			return newList;
+		}
+		
+		@Override
+		protected void onPostExecute(List<BlogDto> result) {
+			super.onPostExecute(result);
+			if (result != null) {
+				SimpleAdapter adapter = new SimpleAdapter(CalendarMainActivity.this,android.R.layout.simple_list_item_1, android.R.id.text1,result);
+				listView.setAdapter(adapter);
+			} else {
+				mProgressHUD.dismiss();
+				(Toast.makeText(getApplicationContext(), "An error occured.", Toast.LENGTH_LONG)).show();
+			}
+			
+		}
+		@Override
+		public void onCancel(DialogInterface dialog) {
+			// TODO Auto-generated method stub
+			mProgressHUD.dismiss();
+		}
+
 	}
 }

@@ -17,6 +17,8 @@ public class BlogDto implements Serializable{
 	private String mindmap;
 	private String imgUrl;
 	private List<ReferenceDto> refList;
+	private Date eventStart;
+	private Date eventEnd;
 	
 	public String getTitle() {
 		return title;
@@ -65,6 +67,18 @@ public class BlogDto implements Serializable{
 	}
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
+	}
+	public Date getEventStart() {
+		return eventStart;
+	}
+	public void setEventStart(Date eventStart) {
+		this.eventStart = eventStart;
+	}
+	public Date getEventEnd() {
+		return eventEnd;
+	}
+	public void setEventEnd(Date eventEnd) {
+		this.eventEnd = eventEnd;
 	}
 	
 	

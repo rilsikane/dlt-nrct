@@ -35,6 +35,8 @@ public class DateUtil {
 	public static final String DEFAULT_DATETIME_REPORT_PATTERN = "dd/MM/yyyy HH:mm";
 	
 	public static final String ORACLE_BAM_DATETIME_PATTERN = "yyyy-MM-dd'T'HH:mm:ss:SSSSZ";
+	
+	public static final String SIMPLE_YEAR_PATTERN = "yyyy";
 
 	/**
 	 * Utililty For Date Object

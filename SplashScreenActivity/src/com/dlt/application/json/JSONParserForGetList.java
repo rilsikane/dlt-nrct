@@ -37,6 +37,7 @@ import com.dlt.application.dto.ReferenceDto;
 import com.dlt.application.dto.SlideDto;
 import com.dlt.application.main.NrctMainActivity;
 import com.dlt.application.model.User;
+import com.dlt.application.utils.DateUtil;
 import com.dlt.application.utils.GlobalVariable;
 
 import android.app.Activity;
@@ -280,6 +281,62 @@ public class JSONParserForGetList {
 							blogDto.setContent(blogJson.getString("content"));
 							blogDto.setCreate_date(new Date(blogJson.getLong("update_date")* 1000));
 							blogDto.setImgUrl(getImageSrc(blogJson.getString("content")));
+							JSONObject authorJson = listJson.getJSONObject("Author");
+							if(authorJson!=null){
+								blogDto.setAuthor_name(authorJson.getString("firstname")+"  "+authorJson.getString("lastname"));
+							}
+							JSONObject mindMapJson = listJson.getJSONObject("Mindmap");
+							blogDto.setMindmap(mindMapJson.getString("json"));
+							
+							blogList.add(blogDto);
+						}
+					}
+
+				}
+				
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+		return blogList;
+	}
+	public List<BlogDto> getCalendar() {
+		List<BlogDto> blogList = new ArrayList<BlogDto>();
+		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+		String token = "";
+		User user = new User();
+		if(user.getUserLogin()!=null){
+			
+			token = user.getUserLogin().token;
+		}
+		nameValuePairs.add(new BasicNameValuePair("menu_id", "-1"));
+		nameValuePairs.add(new BasicNameValuePair("token", token));
+		nameValuePairs.add(new BasicNameValuePair("order", "desc"));
+		nameValuePairs.add(new BasicNameValuePair("events", "true"));
+		JSONArray json = getJsonfromURLDoPost(GlobalVariable.URL_BLOG, nameValuePairs, "list");
+		if (json != null) {
+			JSONArray one = json;
+			try {
+				for (int i = 0; i < one.length(); i++) {
+					
+					JSONObject listJson = one.getJSONObject(i);
+					if(listJson!=null){
+						JSONObject blogJson = listJson.getJSONObject("Blog");
+						if(blogJson!=null){
+							BlogDto blogDto = new BlogDto();
+							blogDto.setId(blogJson.getString("id"));
+							blogDto.setTitle(blogJson.getString("title"));
+							blogDto.setContent(blogJson.getString("content"));
+							blogDto.setCreate_date(new Date(blogJson.getLong("update_date")* 1000));
+							blogDto.setImgUrl(getImageSrc(blogJson.getString("content")));
+							if(blogJson.getString("event_start")!=null &&!"".equals(blogJson.getString("event_start"))){
+							blogDto.setEventStart(DateUtil.convertStringToDateByFormat(blogJson.getString("event_start"), DateUtil.DEFAULT_DATE_PATTERN));
+							}
+							if(blogJson.getString("event_end")!=null &&!"".equals(blogJson.getString("event_end"))){
+								blogDto.setEventEnd(DateUtil.convertStringToDateByFormat(blogJson.getString("event_end"), DateUtil.DEFAULT_DATE_PATTERN));
+							}
 							JSONObject authorJson = listJson.getJSONObject("Author");
 							if(authorJson!=null){
 								blogDto.setAuthor_name(authorJson.getString("firstname")+"  "+authorJson.getString("lastname"));
