@@ -28,8 +28,7 @@ public class RegistrationPageActivity extends Activity {
 		setContentView(R.layout.activity_registration_page);
 		final int color = Color.parseColor("#1B89CA");
 
-		new ScreenSizeUntil(getApplicationContext(), this).changeColor(color,
-				getIntent().getStringExtra("ActionBarTitle"));
+		new ScreenSizeUntil(getApplicationContext(), this).changeColor(color,getIntent().getStringExtra("ActionBarTitle"));
 		
 		final EditText username = (EditText) findViewById(R.id.editText1);
 		final EditText email  = (EditText) findViewById(R.id.editText2);

@@ -60,7 +60,7 @@ import com.jakewharton.salvage.ScreenSizeUntil;
 			Drawable bottomDrawable = getApplicationContext().getResources().getDrawable(R.drawable.actionbar_bottom);
 			LayerDrawable ld = new LayerDrawable(new Drawable[] {colorDrawable, bottomDrawable });
 
-			if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+			if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
 				ld.setCallback(drawableCallback);
 			} else {
 				ProfessorMainActivity.this.getActionBar().setBackgroundDrawable(ld);

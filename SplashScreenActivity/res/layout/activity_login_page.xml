@@ -47,22 +47,25 @@
                 android:id="@+id/editText1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
                 android:layout_below="@+id/fbLogin"
-                android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/input_member_back"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="@string/email_text"
                 android:singleLine="true" >
+
             </EditText>
 
             <EditText
                 android:id="@+id/editText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
                 android:layout_below="@+id/editText1"
-                android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/input_member_back"
                 android:ems="10"
@@ -70,6 +73,7 @@
                 android:hint="@string/password_text"
                 android:inputType="textPassword"
                 android:singleLine="true" >
+
             </EditText>
 
             <Button
@@ -89,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/button1"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/desc_new_regis"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 

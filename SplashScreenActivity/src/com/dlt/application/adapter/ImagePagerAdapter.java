@@ -22,8 +22,7 @@ public class ImagePagerAdapter extends RecyclingPagerAdapter {
 	private boolean isInfiniteLoop;
 	private int _imageWidth;
 
-	public ImagePagerAdapter(Context context, List<SlideDto> imageIdList,
-			int width) {
+	public ImagePagerAdapter(Context context, List<SlideDto> imageIdList,int width) {
 		this.context = context;
 		this.imageIdList = imageIdList;
 		this.size = imageIdList.size();

@@ -52,8 +52,7 @@ public class Utils {
 	@SuppressLint("NewApi")
 	public int getScreenHeight() {
 		int columnHeight;
-		WindowManager wm = (WindowManager) _context
-				.getSystemService(Context.WINDOW_SERVICE);
+		WindowManager wm = (WindowManager) _context.getSystemService(Context.WINDOW_SERVICE);
 		Display display = wm.getDefaultDisplay();
 
 		final Point point = new Point();

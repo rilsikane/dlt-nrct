@@ -70,8 +70,7 @@ public class LoginPageActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		if (android.os.Build.VERSION.SDK_INT > 9) {
-			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-					.permitAll().build();
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 			StrictMode.setThreadPolicy(policy);
 		}
 		uiHelper = new UiLifecycleHelper(this, callback);
@@ -148,7 +147,7 @@ public class LoginPageActivity extends FragmentActivity {
 			Drawable bottomDrawable = getResources().getDrawable(R.drawable.actionbar_bottom);
 			LayerDrawable ld = new LayerDrawable(new Drawable[] {colorDrawable, bottomDrawable });
 
-			if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+			if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
 				ld.setCallback(drawableCallback);
 			} else {
 				getActionBar().setBackgroundDrawable(ld);

@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.ActionBar.LayoutParams;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -64,7 +65,7 @@ import com.squareup.picasso.Picasso;
 			convertView = inflater.inflate(R.layout.each_box_layout, null);
 			viewHolder.showCase = (ImageView) convertView.findViewById(R.id.showCase);
 			viewHolder.relative = (RelativeLayout) convertView.findViewById(R.id.clickLayout);
-			viewHolder.showCase.setLayoutParams(new RelativeLayout.LayoutParams(imageWidth,imageWidth-18));
+			viewHolder.showCase.setLayoutParams(new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT,imageWidth-18));
 			viewHolder.titleImage = (TextView) convertView.findViewById(R.id.titleImage);
 
 			convertView.setTag(viewHolder);

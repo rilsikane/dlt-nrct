@@ -77,7 +77,7 @@ public class FlipViewAdapter extends BaseAdapter{
 				gridView = (GridView) convertView.findViewById(R.id.grid_view);
 				InitilizeGridLayout();
 				viewPager = (AutoScrollViewPager) convertView.findViewById(R.id.view_pager);
-				viewPager.setLayoutParams(new RelativeLayout.LayoutParams(utils.getScreenHeight(),columnWidth));
+				viewPager.setLayoutParams(new RelativeLayout.LayoutParams(utils.getScreenWidth(),columnWidth));
 				viewPager.setAdapter(new ImagePagerAdapter(appContext.getApplicationContext(), slideList,utils.getScreenWidth()).setInfiniteLoop(true));
 		        viewPager.setInterval(3000);
 		        viewPager.startAutoScroll();
