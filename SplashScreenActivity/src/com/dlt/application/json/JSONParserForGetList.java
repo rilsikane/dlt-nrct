@@ -122,6 +122,26 @@ public class JSONParserForGetList {
 							menu.setUrl(menuObj.getString("url"));
 							menu.setForBlog(menuObj.getBoolean("forBlog"));
 							menu.setImgpath("http://dlt.agter-technology.co.th/api/app/webroot/img/menus/"+menuObj.getString("id")+".jpg");
+							if(menuJson.has("Children")){
+								List<MenuDto> childList = new ArrayList<MenuDto>();
+								JSONArray chilArray = menuJson.getJSONArray("Children");
+								if(chilArray!=null && chilArray.length()>0){
+									for (int j = 0; j < chilArray.length(); j++) {
+										MenuDto childDto = new MenuDto();
+										JSONObject child = chilArray.getJSONObject(j);
+										JSONObject childMenu = child.getJSONObject("Menu");
+										childDto.setId(childMenu.getString("id"));
+										childDto.setName(childMenu.getString("name"));
+										childDto.setParent_id(childMenu.getString("parent_id"));
+										childDto.setPublish(childMenu.getBoolean("publish"));
+										childDto.setUrl(childMenu.getString("url"));
+										childDto.setForBlog(childMenu.getBoolean("forBlog"));
+										childList.add(childDto);
+									}
+									menu.setChildren(childList);
+								}
+							}
+							
 							menuList.add(menu);
 						}
 					}

@@ -21,16 +21,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+//import com.google.android.gms.maps.CameraUpdateFactory;
+//import com.google.android.gms.maps.GoogleMap;
+//import com.google.android.gms.maps.MapFragment;
+//import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+//import com.google.android.gms.maps.model.CameraPosition;
+//import com.google.android.gms.maps.model.LatLng;
+//import com.google.android.gms.maps.model.MarkerOptions;
 
 @SuppressLint({ "SetJavaScriptEnabled", "NewApi" }) public class ContactUsActivity extends Activity {
-	private GoogleMap googleMap;
+//	private GoogleMap googleMap;
 	private double latitude = 13.798966;
 	private double longitude = 100.553194;
 	private final Handler handler = new Handler();
@@ -51,24 +51,24 @@ import com.google.android.gms.maps.model.MarkerOptions;
 //	    setupWebView();
 	}
 	private void initilizeMap() {
-        if (googleMap == null) {
-            googleMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-                        
-            // create marker
-            MarkerOptions marker = new MarkerOptions().position(new LatLng(latitude, longitude)).title("");
-            marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.rounded_corners_pin));
-            // adding marker
-            googleMap.addMarker(marker);
-            
-            CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(latitude, longitude)).zoom(17).build();
-            googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-            
-            googleMap.setMyLocationEnabled(false);
-            // check if map is created successfully or not
-            if (googleMap == null) {
-                Toast.makeText(getApplicationContext(),"Sorry! unable to create maps", Toast.LENGTH_SHORT).show();
-            }
-        }
+//        if (googleMap == null) {
+//            googleMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+//                        
+//            // create marker
+//            MarkerOptions marker = new MarkerOptions().position(new LatLng(latitude, longitude)).title("");
+//            marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.rounded_corners_pin));
+//            // adding marker
+//            googleMap.addMarker(marker);
+//            
+//            CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(latitude, longitude)).zoom(17).build();
+//            googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+//            
+//            googleMap.setMyLocationEnabled(false);
+//            // check if map is created successfully or not
+//            if (googleMap == null) {
+//                Toast.makeText(getApplicationContext(),"Sorry! unable to create maps", Toast.LENGTH_SHORT).show();
+//            }
+//        }
     }
  
     @Override

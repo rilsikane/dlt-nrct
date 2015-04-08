@@ -146,26 +146,26 @@ public class ContentMainActivity extends FragmentActivity {
 		}
 			
 		
-//		documentBtn = (ImageView) findViewById(R.id.documentBtn);
-//		final List<AttachDto> attList = JSONParserForGetList.getInstance().getFilesForBlog(blogDto.getId());
-//		if(attList!=null && attList.size()>0){
-//			documentBtn.setVisibility(View.VISIBLE);
-//			documentBtn.setOnClickListener(new OnClickListener() {
-//				
-//				@Override
-//				public void onClick(View v) {
-//					// TODO Auto-generated method stub
-//					Intent intent = new Intent(ContentMainActivity.this,PublishDocumentPageActivity.class);
-//					intent.putExtra("ActionBarText", titles.get(i));
-//					intent.putExtra("blog_id", blogDto.getId());
-//					intent.putExtra("blogDto",(Serializable) blogDto);
-//					startActivity(intent);
-//					finish();
-//				}
-//			});
-//		}else{
-//		documentBtn.setVisibility(View.INVISIBLE);
-//		}
+		documentBtn = (ImageView) findViewById(R.id.documentBtn);
+		final List<AttachDto> attList = JSONParserForGetList.getInstance().getFilesForBlog(blogDto.getId());
+		if(attList!=null && attList.size()>0){
+			documentBtn.setVisibility(View.VISIBLE);
+			documentBtn.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					Intent intent = new Intent(ContentMainActivity.this,PublishDocumentPageActivity.class);
+					intent.putExtra("ActionBarText", titles.get(i));
+					intent.putExtra("blog_id", blogDto.getId());
+					intent.putExtra("blogDto",(Serializable) blogDto);
+					startActivity(intent);
+					finish();
+				}
+			});
+		}else{
+		documentBtn.setVisibility(View.INVISIBLE);
+		}
 		
 		/*
 		 * This button must not be set view to INVISIBLE

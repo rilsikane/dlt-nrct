@@ -64,8 +64,13 @@ public class TaxonomyActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
+				Intent i = new Intent(TaxonomyActivity.this, InformDetailActivity.class);
+				i.putExtra("backAnimation", "fade");
+				i.putExtra("ActionBarText", menuDto.getName());
+				i.putExtra("menu_id", menuDto.getId());
+				TaxonomyActivity.this.startActivity(i);
+				TaxonomyActivity.this.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+				TaxonomyActivity.this.finish();
 			}
 		});
 		

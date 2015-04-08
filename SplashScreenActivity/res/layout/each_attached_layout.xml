@@ -55,7 +55,7 @@
             android:layout_alignLeft="@+id/text_item"
             android:layout_below="@+id/text_item"
             android:text="โดย นายกฤษฎา เที่ยงธรรม"
-            android:textColor="#8dc375"
+            android:textColor="#1B89CA"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView

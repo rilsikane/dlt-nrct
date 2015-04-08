@@ -56,7 +56,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:text="@string/personal"
-                android:textColor="#8dc375" />
+                android:textColor="#1B89CA" />
         </RelativeLayout>
 
         <TextView
